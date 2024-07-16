@@ -1,5 +1,7 @@
 package com.registration.controller;
 
-public class RegistrationController {
+import com.registration.service.UserService;
 
+public class RegistrationController {
+    private UserService userService;
 }
