@@ -1,1 +1,1 @@
-Recruitment System
+Recruitment Management Tool
