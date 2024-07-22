@@ -1,18 +1,19 @@
 package com.login.controller;
 
+import com.login.dto.LoginRequest;
 import com.login.model.User;
 import com.login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/auth")
 public class LoginController {
     @Autowired
     private UserService userService;
 
-    @PostMapping
-    public User login(@RequestParam String username, @RequestParam String password) {
-        return userService.login(username, password);
+    @PostMapping("/login")
+    public User login(@RequestBody LoginRequest loginRequest) {
+        return userService.login(loginRequest.getUsername(), loginRequest.getPassword());
     }
 }
