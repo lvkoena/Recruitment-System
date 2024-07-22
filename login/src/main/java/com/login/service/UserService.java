@@ -14,10 +14,14 @@ public class UserService {
     public User login(String username, String password) {
         User user = userRepository.findByUsername(username);
 
-        if (user != null && user.getPassword().equals(password)) {
-            return user;
+        if (user == null) {
+            throw new RuntimeException("Invalid username. User not found!");
         }
 
-        throw new RuntimeException("Invalid username or password. Try again with correct credintials");
+        if (!user.getPassword().equals(password)) {
+            throw new RuntimeException("Invalid password. Try again with correct credentials!");
+        }
+
+        return user;
     }
 }
