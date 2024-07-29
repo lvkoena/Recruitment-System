@@ -15,4 +15,9 @@ public class RegistrationController {
     public User register(@RequestBody User user) {
         return userService.register(user);
     }
+
+    @GetMapping("/by-username/{username}")
+    public User getUserByUsername(@PathVariable String username) {
+        return userService.findByUsername(username);
+    }
 }
