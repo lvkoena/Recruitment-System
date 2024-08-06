@@ -14,7 +14,7 @@ public class UserService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String REGISTRATION_SERVICE_URL = "http://localhost:8080/register";
+    private static final String REGISTRATION_SERVICE_URL = "http://registration-service";
 
     public User login(String username, String password) {
         User user = userRepository.findByUsername(username);
